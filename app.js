@@ -70,7 +70,7 @@ app.post('/upload', (req, res) => {
             if (err) throw err;
             console.log('Connected');
 
-            connection.query('UPDATE user SET profile_image = ? WHERE id="1"', [newFileName], (err, rows) => {
+            connection.query('UPDATE user SET profile_image = ? WHERE id="1"', [sampleFile.name], (err, rows) => {
                 connection.release();
 
                 if (!err) {
