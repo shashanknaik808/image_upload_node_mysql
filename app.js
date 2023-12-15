@@ -52,7 +52,22 @@ app.post('/upload', (req, res) => {
     sampleFile.mv(uploadPath, function (err) {
         if (err) return res.status(500).send(err);
 
-        res.send('File Uploaded');
+        // res.send("File uploaded successfully");
+
+        pool.getConnection((err, connection) => {
+            if (err) throw err;
+            console.log('Connected');
+
+            connection.query('UPDATE user SET profile_image = ? WHERE id="1"', [newFileName], (err, rows) => {
+                connection.release();
+
+                if (!err) {
+                    res.redirect('/');
+                } else {
+                    console.log(err);
+                }
+            });
+        });
     });
 
     // return res.end("Thank You");
