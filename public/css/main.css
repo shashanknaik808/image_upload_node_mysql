@@ -27,4 +27,8 @@ img {
   cursor: pointer;
   width: 100%;
   background-repeat: 3px;
+}
+
+.btn-primary {
+  background-color: #008CBA;
 }/*# sourceMappingURL=main.css.map */
