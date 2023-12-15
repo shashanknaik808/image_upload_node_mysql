@@ -41,4 +41,16 @@ img {
     border-radius: 5px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0), 0 6px 36px rgba(0, 0, 0, 13);
     border-color: #fff;
+
+    &__image {
+        display: block;
+        margin: 0 auto;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        object-fit: cover;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0), 0 6px 36px rgba(0, 0, 0, 13);
+    }
+    
 }

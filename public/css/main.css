@@ -40,4 +40,15 @@ img {
   border-radius: 5px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0), 0 6px 36px rgb(0, 0, 0);
   border-color: #fff;
+}
+.card__image {
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  -o-object-fit: cover;
+     object-fit: cover;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0), 0 6px 36px rgb(0, 0, 0);
 }/*# sourceMappingURL=main.css.map */
