@@ -7,6 +7,10 @@ const app = express();
 app.use(express.json());
 app.use(fileUpload());
 
+//Static Files
+app.use(express.static('public'));
+app.use(express.static('upload'));
+
 //Temlating Engine
 app.engine('hbs', engine({ extname: '.hbs' }));
 app.set('view engine', 'hbs');
