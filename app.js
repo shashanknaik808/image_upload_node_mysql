@@ -32,8 +32,20 @@ pool.getConnection((err, connection) => {
 
 
 app.get('/', (req, res) => {
-    res.render('index');
+    pool.getConnection((err, connection) => {
+        if (err) throw err;
+        console.log('Connected');
+
+        connection.query('SELECT * FROM user WHERE id = "1"', (err, rows) => {
+            connection.release();
+
+            if (!err) {
+                res.render('index', { rows });
+            }
+        });
+    });
 });
+
 
 app.post('/upload', (req, res) => {
     let sampleFile;
