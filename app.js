@@ -1,10 +1,11 @@
 const express = require('express');
 const { engine } = require('express-handlebars');
-// const fileUpload = require('express-fileupload');
+const fileUpload = require('express-fileupload');
 
 const app = express();
 
 app.use(express.json());
+app.use(fileUpload());
 
 //Temlating Engine
 app.engine('hbs', engine({ extname: '.hbs' }));
@@ -15,8 +16,17 @@ app.get('/', (req, res) => {
 });
 
 app.post('/upload', (req, res) => {
-    console.log(req.body);
-    res.end('Thank you');
+    let sampleFile;
+    let uploadPath;
+
+    if (!req.files || Object.keys(req.files).length === 0) {
+        return res.status(400).send('No image were selected.');
+    }
+
+    sampleFile = req.files.sampleFile;
+    console.log(sampleFile);
+
+    return res.end("Thank You");
 });
 
 app.listen(5000, () => {

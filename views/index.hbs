@@ -1,8 +1,6 @@
-<form action="/upload" method="POST">
+<form action="/upload" method="POST" enctype="multipart/form-data">
     <h3>Upload Profile Photo</h3>
-    <input type="text" name="title" />
+    <input type="file" name="sampleFile" />
     <br />
-    <input type="text" name="description"></input>
-    <br />
-    <input type="submit" value="Send" />
+    <input type="submit" value="Send" class="btn btn-primary" />
 </form>
