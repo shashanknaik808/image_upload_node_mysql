@@ -1,6 +1,7 @@
 const express = require('express');
 const { engine } = require('express-handlebars');
 const fileUpload = require('express-fileupload');
+const mysql = require('mysql');
 
 const app = express();
 
@@ -14,6 +15,21 @@ app.use(express.static('upload'));
 //Temlating Engine
 app.engine('hbs', engine({ extname: '.hbs' }));
 app.set('view engine', 'hbs');
+
+
+const pool = mysql.createPool({
+    connectionLimit: 10,
+    host: 'localhost',
+    user: 'root',
+    password: 'root123',
+    database: 'userprofile'
+});
+
+pool.getConnection((err, connection) => {
+    if (err) throw err;
+    console.log('Connected');
+})
+
 
 app.get('/', (req, res) => {
     res.render('index');
